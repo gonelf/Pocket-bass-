@@ -7,6 +7,7 @@ This project replicates ~80-90% of PocketBase's simplicity while being fully ser
 ## ✨ Features
 
 - 🏢 **Multi-Tenant**: Full multi-tenancy with data isolation, per-tenant limits, and subdomain routing
+- 💳 **Stripe Billing**: Complete subscription management with 4 pricing tiers and progressive lifetime pricing
 - 🔐 **Authentication**: Email/password auth, JWT tokens, user verification, password reset
 - 🗄️ **Database**: SQLite (Turso) with optional Postgres support (Neon)
 - 📦 **Storage**: Cloudflare R2 (S3-compatible) with tenant-isolated prefixes

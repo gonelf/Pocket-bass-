@@ -116,14 +116,26 @@ export const Tenants: CollectionConfig = {
       required: true,
       defaultValue: 'free',
       options: [
-        { label: 'Free', value: 'free' },
-        { label: 'Starter', value: 'starter' },
-        { label: 'Pro', value: 'pro' },
-        { label: 'Enterprise', value: 'enterprise' },
+        { label: 'Free / Hobby', value: 'free' },
+        { label: 'Starter / Indie ($7/mo)', value: 'starter' },
+        { label: 'Pro / Unlimited ($24/mo)', value: 'pro' },
+        { label: 'Lifetime (one-time)', value: 'lifetime' },
       ],
       access: {
         update: ({ req: { user } }) => user?.role === 'super-admin',
       },
+    },
+    {
+      name: 'billingCycle',
+      type: 'select',
+      admin: {
+        description: 'Billing cycle for subscription plans',
+        condition: (data) => ['starter', 'pro'].includes(data.plan),
+      },
+      options: [
+        { label: 'Monthly', value: 'monthly' },
+        { label: 'Yearly', value: 'yearly' },
+      ],
     },
     {
       name: 'status',
@@ -267,6 +279,108 @@ export const Tenants: CollectionConfig = {
       type: 'json',
       admin: {
         description: 'Additional metadata for the tenant',
+      },
+    },
+    {
+      name: 'billing',
+      type: 'group',
+      admin: {
+        description: 'Stripe billing information',
+      },
+      fields: [
+        {
+          name: 'stripeCustomerId',
+          type: 'text',
+          admin: {
+            description: 'Stripe customer ID',
+            readOnly: true,
+          },
+          access: {
+            read: ({ req: { user } }) => user?.role === 'super-admin',
+          },
+        },
+        {
+          name: 'stripeSubscriptionId',
+          type: 'text',
+          admin: {
+            description: 'Stripe subscription ID',
+            readOnly: true,
+          },
+          access: {
+            read: ({ req: { user } }) => user?.role === 'super-admin',
+          },
+        },
+        {
+          name: 'stripePriceId',
+          type: 'text',
+          admin: {
+            description: 'Stripe price ID for current subscription',
+            readOnly: true,
+          },
+          access: {
+            read: ({ req: { user } }) => user?.role === 'super-admin',
+          },
+        },
+        {
+          name: 'subscriptionStatus',
+          type: 'select',
+          admin: {
+            description: 'Current subscription status from Stripe',
+            readOnly: true,
+          },
+          options: [
+            { label: 'Active', value: 'active' },
+            { label: 'Trialing', value: 'trialing' },
+            { label: 'Past Due', value: 'past_due' },
+            { label: 'Canceled', value: 'canceled' },
+            { label: 'Unpaid', value: 'unpaid' },
+            { label: 'Incomplete', value: 'incomplete' },
+          ],
+        },
+        {
+          name: 'currentPeriodEnd',
+          type: 'date',
+          admin: {
+            description: 'Current billing period end date',
+            readOnly: true,
+          },
+        },
+        {
+          name: 'cancelAtPeriodEnd',
+          type: 'checkbox',
+          admin: {
+            description: 'Subscription will cancel at end of period',
+            readOnly: true,
+          },
+        },
+        {
+          name: 'lifetimeAccess',
+          type: 'checkbox',
+          admin: {
+            description: 'Has lifetime access (one-time payment)',
+          },
+        },
+        {
+          name: 'lifetimePurchaseDate',
+          type: 'date',
+          admin: {
+            description: 'Date of lifetime purchase',
+            readOnly: true,
+            condition: (data) => data.billing?.lifetimeAccess,
+          },
+        },
+        {
+          name: 'lifetimePricePaid',
+          type: 'number',
+          admin: {
+            description: 'Amount paid for lifetime access',
+            readOnly: true,
+            condition: (data) => data.billing?.lifetimeAccess,
+          },
+        },
+      ],
+      access: {
+        update: ({ req: { user } }) => user?.role === 'super-admin',
       },
     },
   ],
