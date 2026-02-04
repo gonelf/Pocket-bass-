@@ -1,0 +1,106 @@
+
+> pocket-bass-clone@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.11
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+
+   Creating an optimized production build ...
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+Failed to compile.
+
+./node_modules/@libsql/isomorphic-fetch/node_modules/node-fetch/LICENSE.md
+Module parse failed: Unexpected token (1:4)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> The MIT License (MIT)
+| 
+| Copyright (c) 2016 David Frank
+
+Import trace for requested module:
+./node_modules/@libsql/isomorphic-fetch/node_modules/node-fetch/LICENSE.md
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ ./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ sync ^\.\/.*$
+./node_modules/@payloadcms/db-sqlite/node_modules/libsql/index.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/sqlite3.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/node.js
+./node_modules/@payloadcms/db-sqlite/dist/connect.js
+./node_modules/@payloadcms/db-sqlite/dist/index.js
+./src/payload.config.ts
+./src/app/(payload)/api/health/route.ts
+
+./node_modules/@libsql/isomorphic-fetch/node_modules/node-fetch/README.md
+Module parse failed: Unexpected token (2:3)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+| node-fetch
+> ==========
+| 
+| [![npm version][npm-image]][npm-url]
+
+Import trace for requested module:
+./node_modules/@libsql/isomorphic-fetch/node_modules/node-fetch/README.md
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ ./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ sync ^\.\/.*$
+./node_modules/@payloadcms/db-sqlite/node_modules/libsql/index.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/sqlite3.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/node.js
+./node_modules/@payloadcms/db-sqlite/dist/connect.js
+./node_modules/@payloadcms/db-sqlite/dist/index.js
+./src/payload.config.ts
+./src/app/(payload)/api/health/route.ts
+
+./node_modules/@libsql/isomorphic-ws/README.md
+Module parse failed: Unexpected character ' ' (1:1)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> # `@libsql/isomorphic-ws`
+| 
+| This package provides `WebSocket` on Node (using `ws`) and in Deno and Cloudflare Workers (using the native `WebSocket`). Supports both CommonJS and ES modules.
+
+Import trace for requested module:
+./node_modules/@libsql/isomorphic-ws/README.md
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ ./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ sync ^\.\/.*$
+./node_modules/@payloadcms/db-sqlite/node_modules/libsql/index.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/sqlite3.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/node.js
+./node_modules/@payloadcms/db-sqlite/dist/connect.js
+./node_modules/@payloadcms/db-sqlite/dist/index.js
+./src/payload.config.ts
+./src/app/(payload)/api/health/route.ts
+
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/README.md
+Module parse failed: Unexpected token (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> <p align="center">
+|   <a href="https://docs.turso.tech/sdk/ts/quickstart">
+|     <img alt="Turso + TypeScript" src="https://github.com/tursodatabase/libsql-client-ts/assets/950181/5d3a2693-75f9-4c56-9107-8ccaa96785fd" width="1000">
+
+Import trace for requested module:
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/README.md
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ ./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ sync ^\.\/.*$
+./node_modules/@payloadcms/db-sqlite/node_modules/libsql/index.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/sqlite3.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/node.js
+./node_modules/@payloadcms/db-sqlite/dist/connect.js
+./node_modules/@payloadcms/db-sqlite/dist/index.js
+./src/payload.config.ts
+./src/app/(payload)/api/health/route.ts
+
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/darwin-arm64/README.md
+Module parse failed: Unexpected character ' ' (1:1)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> # `@libsql/darwin-arm64`
+| 
+| Prebuilt binary package for `libsql` on `darwin-arm64`.
+
+Import trace for requested module:
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/darwin-arm64/README.md
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ ./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/ ./node_modules/@libsql/ sync ^\.\/.*$
+./node_modules/@payloadcms/db-sqlite/node_modules/libsql/index.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/sqlite3.js
+./node_modules/@payloadcms/db-sqlite/node_modules/@libsql/client/lib-esm/node.js
+./node_modules/@payloadcms/db-sqlite/dist/connect.js
+./node_modules/@payloadcms/db-sqlite/dist/index.js
+./src/payload.config.ts
+./src/app/(payload)/api/health/route.ts
+
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+
+> Build failed because of webpack errors

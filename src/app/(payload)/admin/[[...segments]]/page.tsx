@@ -1,13 +1,13 @@
-import { generatePageMetadata } from '@payloadcms/next/utilities'
+import { generatePageMetadata } from '@payloadcms/next/views'
 import config from '@/payload.config'
-import { RenderAdmin } from '@payloadcms/next/views'
+import { RootPage } from '@payloadcms/next/views'
 import { Metadata } from 'next'
 import React from 'react'
 
-export const generateMetadata = (): Metadata => generatePageMetadata({ config })
+export const generateMetadata = ({ params, searchParams }: { params: Promise<{ segments: string[] }>; searchParams: Promise<{ [key: string]: string | string[] }> }): Promise<Metadata> => generatePageMetadata({ config, params, searchParams })
 
 const Page = ({ params, searchParams }: any) => {
-  return <RenderAdmin config={config} params={params} searchParams={searchParams} />
+  return <RootPage config={config} params={params} searchParams={searchParams} importMap={{}} />
 }
 
 export default Page

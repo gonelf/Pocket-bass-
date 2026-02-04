@@ -1,0 +1,162 @@
+
+> pocket-bass-clone@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.11
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+
+   Creating an optimized production build ...
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⚠ Compiled with warnings in 20.0s
+
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+Attempted import error: 'generatePageMetadata' is not exported from '@payloadcms/next/utilities' (imported as 'generatePageMetadata').
+
+Import trace for requested module:
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+Attempted import error: 'RenderAdmin' is not exported from '@payloadcms/next/views' (imported as 'RenderAdmin').
+
+Import trace for requested module:
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+
+./src/app/(payload)/api/[...slug]/route.ts
+Attempted import error: 'REST_API' is not exported from '@payloadcms/next/routes' (imported as 'REST_API').
+
+Import trace for requested module:
+./src/app/(payload)/api/[...slug]/route.ts
+
+./src/app/(payload)/api/graphql/route.ts
+Attempted import error: 'GRAPHQL_API' is not exported from '@payloadcms/next/routes' (imported as 'GRAPHQL_API').
+
+Import trace for requested module:
+./src/app/(payload)/api/graphql/route.ts
+
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (123kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (617kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+Failed to compile.
+
+node:console
+Module build failed: UnhandledSchemeError: Reading from "node:console" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408351
+    at Hook.eval [as callAsync] (eval at create (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:6:1)
+    at Object.processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408276)
+    at processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4667)
+    at runLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408138)
+    at NormalModule.build (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:410151)
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:82479
+    at NormalModule.needBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:414101)
+
+Import trace for requested module:
+node:console
+./node_modules/undici/lib/mock/pending-interceptors-formatter.js
+./node_modules/undici/lib/mock/mock-agent.js
+./node_modules/undici/index.js
+./node_modules/payload/dist/uploads/safeFetch.js
+./node_modules/payload/dist/index.js
+./src/middleware/tenantContext.ts
+
+node:crypto
+Module build failed: UnhandledSchemeError: Reading from "node:crypto" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408351
+    at Hook.eval [as callAsync] (eval at create (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:6:1)
+    at Object.processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408276)
+    at processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4667)
+    at runLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408138)
+    at NormalModule.build (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:410151)
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:82479
+    at NormalModule.needBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:414101)
+
+Import trace for requested module:
+node:crypto
+./node_modules/undici/lib/mock/snapshot-utils.js
+./node_modules/undici/lib/mock/snapshot-agent.js
+./node_modules/undici/index.js
+./node_modules/payload/dist/uploads/safeFetch.js
+./node_modules/payload/dist/index.js
+./src/middleware/tenantContext.ts
+
+node:diagnostics_channel
+Module build failed: UnhandledSchemeError: Reading from "node:diagnostics_channel" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408351
+    at Hook.eval [as callAsync] (eval at create (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:6:1)
+    at Object.processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408276)
+    at processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4667)
+    at runLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408138)
+    at NormalModule.build (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:410151)
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:82479
+    at NormalModule.needBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:414101)
+
+Import trace for requested module:
+node:diagnostics_channel
+./node_modules/undici/lib/interceptor/deduplicate.js
+./node_modules/undici/index.js
+./node_modules/payload/dist/uploads/safeFetch.js
+./node_modules/payload/dist/index.js
+./src/middleware/tenantContext.ts
+
+node:dns
+Module build failed: UnhandledSchemeError: Reading from "node:dns" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408351
+    at Hook.eval [as callAsync] (eval at create (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:6:1)
+    at Object.processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408276)
+    at processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4667)
+    at runLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408138)
+    at NormalModule.build (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:410151)
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:82479
+    at NormalModule.needBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:414101)
+
+Import trace for requested module:
+node:dns
+./node_modules/undici/lib/interceptor/dns.js
+./node_modules/undici/index.js
+./node_modules/payload/dist/uploads/safeFetch.js
+./node_modules/payload/dist/index.js
+./src/middleware/tenantContext.ts
+
+node:fs/promises
+Module build failed: UnhandledSchemeError: Reading from "node:fs/promises" is not handled by plugins (Unhandled scheme).
+Webpack supports "data:" and "file:" URIs by default.
+You may need an additional plugin to handle "node:" URIs.
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408351
+    at Hook.eval [as callAsync] (eval at create (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:14:9224), <anonymous>:6:1)
+    at Object.processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408276)
+    at processResource (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:5308)
+    at iteratePitchingLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:4667)
+    at runLoaders (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/loader-runner/LoaderRunner.js:1:8590)
+    at NormalModule._doBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:408138)
+    at NormalModule.build (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:410151)
+    at /Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:82479
+    at NormalModule.needBuild (/Users/goncalohenriques/Documents/github/Pocket-bass-/node_modules/next/dist/compiled/webpack/bundle5.js:29:414101)
+
+Import trace for requested module:
+node:fs/promises
+./node_modules/undici/lib/mock/snapshot-recorder.js
+./node_modules/undici/lib/mock/snapshot-agent.js
+./node_modules/undici/index.js
+./node_modules/payload/dist/uploads/safeFetch.js
+./node_modules/payload/dist/index.js
+./src/middleware/tenantContext.ts
+
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+
+> Build failed because of webpack errors

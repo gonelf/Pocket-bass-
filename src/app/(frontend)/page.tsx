@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       .then(data => {
         if (data.total) setTotalSignups(data.total)
       })
-      .catch(() => {})
+      .catch(() => { })
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -132,7 +133,7 @@ export default function Home() {
             🎸 POCKET BASS
           </div>
           <div style={{ display: 'flex', gap: '1rem' }}>
-            <a href="/pricing" style={{
+            <Link href="/pricing" style={{
               color: 'white',
               textDecoration: 'none',
               padding: '0.5rem 1.5rem',
@@ -144,8 +145,8 @@ export default function Home() {
               transition: 'all 0.3s',
             }}>
               Pricing
-            </a>
-            <a href="/admin" style={{
+            </Link>
+            <Link href="/admin" style={{
               color: 'white',
               textDecoration: 'none',
               padding: '0.5rem 1.5rem',
@@ -157,7 +158,7 @@ export default function Home() {
               transition: 'all 0.3s',
             }}>
               Login
-            </a>
+            </Link>
           </div>
         </header>
 
@@ -237,7 +238,7 @@ export default function Home() {
                 marginBottom: '1.5rem',
                 fontSize: '0.9rem',
               }}>
-                🎉 You were referred! You'll skip ahead in line.
+                🎉 You were referred! You&apos;ll skip ahead in line.
               </div>
             )}
 

@@ -31,7 +31,7 @@ export const Posts: CollectionConfig = {
               },
             },
           ],
-        }
+        } as any
       }
 
       // Admins can read all posts in their tenant
@@ -58,7 +58,7 @@ export const Posts: CollectionConfig = {
             ],
           },
         ],
-      }
+      } as any
     },
     create: ({ req: { user } }) => !!user && !!user.tenant,
     update: ({ req: { user } }) => {
@@ -87,7 +87,7 @@ export const Posts: CollectionConfig = {
             },
           },
         ],
-      }
+      } as any
     },
     delete: ({ req: { user } }) => {
       if (!user || !user.tenant) return false
@@ -115,7 +115,7 @@ export const Posts: CollectionConfig = {
             },
           },
         ],
-      }
+      } as any
     },
   },
   fields: [
@@ -165,7 +165,8 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
-      defaultValue: ({ user }: any) => user?.id,
+      defaultValue: ({ user }: any) => user?.id, // kept as any for now but should be safe
+
     },
     {
       name: 'status',
@@ -221,8 +222,8 @@ export const Posts: CollectionConfig = {
           if (req.user) {
             data.author = req.user.id
           }
-          if (!data.tenant && req.tenant) {
-            data.tenant = req.tenant.id
+          if (!data.tenant && (req as any).tenant) {
+            data.tenant = (req as any).tenant.id
           }
           if (!data.tenant && req.user?.tenant) {
             data.tenant = req.user.tenant

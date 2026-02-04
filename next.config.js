@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['@payloadcms/db-sqlite', '@libsql/client'],
   experimental: {
     reactCompiler: false,
   },

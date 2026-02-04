@@ -32,23 +32,17 @@ export const Media: CollectionConfig = {
           tenant: {
             equals: user.tenant,
           },
-        }
+        } as any
       }
       // Users can update their own uploads
       return {
-        and: [
-          {
-            tenant: {
-              equals: user.tenant,
-            },
-          },
-          {
-            uploadedBy: {
-              equals: user.id,
-            },
-          },
-        ],
-      }
+        tenant: {
+          equals: user.tenant,
+        },
+        uploadedBy: {
+          equals: user.id,
+        },
+      } as any
     },
     delete: ({ req: { user } }) => {
       if (!user || !user.tenant) return false
@@ -60,23 +54,17 @@ export const Media: CollectionConfig = {
           tenant: {
             equals: user.tenant,
           },
-        }
+        } as any
       }
       // Users can delete their own uploads
       return {
-        and: [
-          {
-            tenant: {
-              equals: user.tenant,
-            },
-          },
-          {
-            uploadedBy: {
-              equals: user.id,
-            },
-          },
-        ],
-      }
+        tenant: {
+          equals: user.tenant,
+        },
+        uploadedBy: {
+          equals: user.id,
+        },
+      } as any
     },
   },
   upload: {
@@ -148,8 +136,8 @@ export const Media: CollectionConfig = {
           if (req.user) {
             data.uploadedBy = req.user.id
           }
-          if (!data.tenant && req.tenant) {
-            data.tenant = req.tenant.id
+          if (!data.tenant && (req as any).tenant) {
+            data.tenant = (req as any).tenant.id
           }
           if (!data.tenant && req.user?.tenant) {
             data.tenant = req.user.tenant

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
 export default function WaitlistSuccess() {
@@ -85,7 +86,7 @@ export default function WaitlistSuccess() {
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
         }}>
-          You're on the list!
+          You&apos;re on the list!
         </h1>
 
         {/* Position Info */}
@@ -275,7 +276,7 @@ export default function WaitlistSuccess() {
         </div>
 
         {/* Back to Home */}
-        <a
+        <Link
           href="/"
           style={{
             display: 'inline-block',
@@ -286,7 +287,7 @@ export default function WaitlistSuccess() {
           }}
         >
           ← Back to home
-        </a>
+        </Link>
       </div>
     </div>
   )

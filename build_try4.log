@@ -1,0 +1,95 @@
+
+> pocket-bass-clone@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.11
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+
+   Creating an optimized production build ...
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ✓ Compiled successfully in 31.1s
+   Linting and checking validity of types ...
+
+Failed to compile.
+
+./src/app/(frontend)/page.tsx
+47:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+148:13  Error: Do not use an `<a>` element to navigate to `/admin/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+240:42  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/app/(frontend)/waitlist/success/page.tsx
+8:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+88:14  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+278:9  Error: Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+9:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/checkout/route.ts
+108:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/lifetime-pricing/route.ts
+9:27  Warning: 'request' is defined but never used.  @typescript-eslint/no-unused-vars
+25:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/portal/route.ts
+75:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/webhook/route.ts
+45:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+199:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/health/route.ts
+49:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/tenants/provision/route.ts
+195:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/join/route.ts
+78:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/position/route.ts
+77:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/stats/route.ts
+10:27  Warning: 'request' is defined but never used.  @typescript-eslint/no-unused-vars
+22:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Media.ts
+139:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Posts.ts
+168:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Tenants.ts
+399:32  Warning: 'req' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/tenantContext.ts
+6:7  Warning: 'tenantCache' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+6:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+7:7  Warning: 'CACHE_TTL' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+10:7  Warning: 'rateLimitStore' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+12:44  Warning: 'req' is defined but never used.  @typescript-eslint/no-unused-vars
+145:38  Warning: 'tenant' is defined but never used.  @typescript-eslint/no-unused-vars
+145:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+180:16  Warning: 'updateTenantUsage' is defined but never used.  @typescript-eslint/no-unused-vars
+180:34  Warning: 'tenantId' is defined but never used.  @typescript-eslint/no-unused-vars
+180:52  Warning: 'count' is defined but never used.  @typescript-eslint/no-unused-vars
+180:67  Warning: 'timestamp' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/payload.config.ts
+50:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/utils/security.ts
+41:18  Error: A `require()` style import is forbidden.  @typescript-eslint/no-require-imports
+49:18  Error: A `require()` style import is forbidden.  @typescript-eslint/no-require-imports
+121:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+152:18  Error: A `require()` style import is forbidden.  @typescript-eslint/no-require-imports
+
+./src/utils/stripe.ts
+96:45  Warning: 'billingCycle' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

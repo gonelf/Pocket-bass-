@@ -1,3 +1,5 @@
+import crypto from 'crypto'
+
 /**
  * Security utilities for multi-tenant isolation
  */
@@ -38,7 +40,7 @@ export function validateTenantAccess(
  * Generates a secure random API key
  */
 export function generateApiKey(): string {
-  const crypto = require('crypto')
+  // const crypto = require('crypto') - imported at top level
   return `pb_${crypto.randomBytes(32).toString('hex')}`
 }
 
@@ -46,7 +48,7 @@ export function generateApiKey(): string {
  * Generates a secure random secret
  */
 export function generateSecret(): string {
-  const crypto = require('crypto')
+  // const crypto = require('crypto') - imported at top level
   return crypto.randomBytes(32).toString('hex')
 }
 
@@ -149,7 +151,7 @@ export function getClientIP(headers: Headers): string {
  * Calculate hash for secure comparisons (constant-time)
  */
 export function secureCompare(a: string, b: string): boolean {
-  const crypto = require('crypto')
+  // const crypto = require('crypto') - imported at top level
   if (a.length !== b.length) {
     return false
   }
