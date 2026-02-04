@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 
-export default function WaitlistSuccess() {
+function WaitlistSuccessContent() {
   const [copied, setCopied] = useState(false)
   const [position, setPosition] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -290,5 +290,13 @@ export default function WaitlistSuccess() {
         </Link>
       </div>
     </div>
+  )
+}
+
+export default function WaitlistSuccess() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <WaitlistSuccessContent />
+    </Suspense>
   )
 }

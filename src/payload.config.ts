@@ -26,8 +26,15 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: '- Pocket Bass',
-      favicon: '/favicon.ico',
-      ogImage: '/og-image.jpg',
+      icons: [{
+        rel: 'icon',
+        url: '/favicon.ico',
+      }],
+      openGraph: {
+        images: [{
+          url: '/og-image.jpg',
+        }],
+      },
     },
   },
   collections: [Tenants, Users, Posts, Media, Waitlist],
@@ -47,9 +54,9 @@ export default buildConfig({
       collections: {
         media: {
           // Tenant-isolated storage with prefixes
-          prefix: ({ doc }: any) => {
-            return doc.tenant ? `tenant-${doc.tenant}` : 'global'
-          },
+          // prefix: ({ doc }: any) => {
+          //   return doc.tenant ? `tenant-${doc.tenant}` : 'global'
+          // },
         },
       },
       bucket: process.env.R2_BUCKET_NAME || 'pocket-bass-media',

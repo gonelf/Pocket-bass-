@@ -5,12 +5,14 @@ export const Users: CollectionConfig = {
   auth: {
     tokenExpiration: 7200, // 2 hours
     verify: {
-      generateEmailHTML: ({ token, user }) => {
+      generateEmailHTML: (args: any) => {
+        const { token, user } = args
         return `<p>Hello ${user.email}, verify your account by clicking <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/verify?token=${token}">here</a></p>`
       },
     },
     forgotPassword: {
-      generateEmailHTML: ({ token, user }) => {
+      generateEmailHTML: (args: any) => {
+        const { token, user } = args
         return `<p>Hello ${user.email}, reset your password by clicking <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token}">here</a></p>`
       },
     },
@@ -54,14 +56,14 @@ export const Users: CollectionConfig = {
           tenant: {
             equals: user.tenant,
           },
-        }
+        } as any
       }
       // Users can update themselves
       return {
         id: {
           equals: user.id,
         },
-      }
+      } as any
     },
     delete: ({ req: { user } }) => {
       if (!user) return false
@@ -82,7 +84,7 @@ export const Users: CollectionConfig = {
               },
             },
           ],
-        }
+        } as any
       }
       return false
     },
@@ -145,8 +147,8 @@ export const Users: CollectionConfig = {
     beforeChange: [
       async ({ data, req, operation }) => {
         // Auto-assign tenant from request context on create
-        if (operation === 'create' && !data.tenant && req.tenant) {
-          data.tenant = req.tenant.id
+        if (operation === 'create' && !data.tenant && (req as any).tenant) {
+          data.tenant = (req as any).tenant.id
         }
 
         // Prevent super-admin role assignment unless by super-admin

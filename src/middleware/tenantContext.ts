@@ -17,7 +17,7 @@ export async function getTenantFromRequest(req: NextRequest) {
 
   // Returning null for now to allow build to pass.
   console.warn('Tenant middleware disabled due to Edge Runtime constraints')
-  return null;
+  return null as any;
 
   /*
   // 1. Try to get tenant from API key header

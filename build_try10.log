@@ -1,0 +1,111 @@
+
+> pocket-bass-clone@1.0.0 build
+> next build
+
+   ▲ Next.js 15.5.11
+   - Experiments (use with caution):
+     ⨯ reactCompiler
+
+   Creating an optimized production build ...
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ✓ Compiled successfully in 13.6s
+   Linting and checking validity of types ...
+
+./src/app/(frontend)/page.tsx
+48:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(frontend)/waitlist/success/page.tsx
+9:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/admin/[[...segments]]/page.tsx
+9:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/checkout/route.ts
+108:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/lifetime-pricing/route.ts
+9:27  Warning: 'request' is defined but never used.  @typescript-eslint/no-unused-vars
+25:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/portal/route.ts
+75:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/billing/webhook/route.ts
+45:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+199:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/health/route.ts
+49:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/tenants/provision/route.ts
+195:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/join/route.ts
+78:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/position/route.ts
+77:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/(payload)/api/waitlist/stats/route.ts
+10:27  Warning: 'request' is defined but never used.  @typescript-eslint/no-unused-vars
+22:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Media.ts
+35:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+45:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+57:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+67:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+127:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+139:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+140:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Posts.ts
+34:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+61:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+90:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+118:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+168:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+225:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+226:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/collections/Tenants.ts
+402:32  Warning: 'req' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/tenantContext.ts
+6:7  Warning: 'tenantCache' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+6:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+7:7  Warning: 'CACHE_TTL' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+10:7  Warning: 'rateLimitStore' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+12:44  Warning: 'req' is defined but never used.  @typescript-eslint/no-unused-vars
+145:38  Warning: 'tenant' is defined but never used.  @typescript-eslint/no-unused-vars
+145:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+180:16  Warning: 'updateTenantUsage' is defined but never used.  @typescript-eslint/no-unused-vars
+180:34  Warning: 'tenantId' is defined but never used.  @typescript-eslint/no-unused-vars
+180:52  Warning: 'count' is defined but never used.  @typescript-eslint/no-unused-vars
+180:67  Warning: 'timestamp' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/payload.config.ts
+50:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/utils/security.ts
+123:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/utils/stripe.ts
+96:45  Warning: 'billingCycle' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+Failed to compile.
+
+./src/collections/Users.ts:13:29
+Type error: Property 'token' does not exist on type '{ req?: PayloadRequest | undefined; token?: string | undefined; user?: any; } | undefined'.
+
+[0m [90m 11 |[39m     }[33m,[39m
+ [90m 12 |[39m     forgotPassword[33m:[39m {
+[31m[1m>[22m[39m[90m 13 |[39m       generateEmailHTML[33m:[39m ({ token[33m,[39m user }) [33m=>[39m {
+ [90m    |[39m                             [31m[1m^[22m[39m
+ [90m 14 |[39m         [36mreturn[39m [32m`<p>Hello ${user.email}, reset your password by clicking <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/reset-password?token=${token}">here</a></p>`[39m
+ [90m 15 |[39m       }[33m,[39m
+ [90m 16 |[39m     }[33m,[39m[0m
+Next.js build worker exited with code: 1 and signal: null

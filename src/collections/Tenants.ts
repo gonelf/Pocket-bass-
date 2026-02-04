@@ -57,7 +57,10 @@ export const Tenants: CollectionConfig = {
       admin: {
         description: 'Unique subdomain (e.g., "acme" for acme.yourdomain.com)',
       },
-      validate: (value: string) => {
+      validate: (value: string | null | undefined) => {
+        if (typeof value !== 'string') {
+          return 'Subdomain must be a string'
+        }
         // Only allow lowercase alphanumeric and hyphens
         if (!/^[a-z0-9-]+$/.test(value)) {
           return 'Subdomain must contain only lowercase letters, numbers, and hyphens'
