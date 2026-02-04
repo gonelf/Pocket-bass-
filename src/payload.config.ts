@@ -6,6 +6,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 // Collections
+import { Tenants } from './collections/Tenants'
 import { Users } from './collections/Users'
 import { Posts } from './collections/Posts'
 import { Media } from './collections/Media'
@@ -23,7 +24,7 @@ export default buildConfig({
       ogImage: '/og-image.jpg',
     },
   },
-  collections: [Users, Posts, Media],
+  collections: [Tenants, Users, Posts, Media],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
   typescript: {
@@ -38,7 +39,12 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        media: true,
+        media: {
+          // Tenant-isolated storage with prefixes
+          prefix: ({ doc }: any) => {
+            return doc.tenant ? `tenant-${doc.tenant}` : 'global'
+          },
+        },
       },
       bucket: process.env.R2_BUCKET_NAME || 'pocket-bass-media',
       config: {
@@ -51,6 +57,25 @@ export default buildConfig({
       },
     }),
   ],
+  onInit: async (payload) => {
+    // Log initialization
+    console.log('[Pocket Bass] Multi-tenant mode initialized')
+
+    // Check if super admin exists, if not, log warning
+    const superAdmins = await payload.find({
+      collection: 'users',
+      where: {
+        role: {
+          equals: 'super-admin',
+        },
+      },
+      limit: 1,
+    })
+
+    if (superAdmins.totalDocs === 0) {
+      console.warn('[WARNING] No super admin found. Create one via the admin panel.')
+    }
+  },
   cors: [
     process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   ].filter(Boolean),

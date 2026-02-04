@@ -6,13 +6,15 @@ This project replicates ~80-90% of PocketBase's simplicity while being fully ser
 
 ## ✨ Features
 
+- 🏢 **Multi-Tenant**: Full multi-tenancy with data isolation, per-tenant limits, and subdomain routing
 - 🔐 **Authentication**: Email/password auth, JWT tokens, user verification, password reset
 - 🗄️ **Database**: SQLite (Turso) with optional Postgres support (Neon)
-- 📦 **Storage**: Cloudflare R2 (S3-compatible) for file uploads
+- 📦 **Storage**: Cloudflare R2 (S3-compatible) with tenant-isolated prefixes
 - 🚀 **Auto-generated APIs**: REST & GraphQL endpoints out of the box
-- ⚡ **Admin UI**: Beautiful admin panel at `/admin`
-- 🎨 **Collections**: Pre-built Users, Posts, and Media collections (PocketBase-like)
-- 🔒 **Access Control**: Row-level security with flexible access rules
+- ⚡ **Admin UI**: Beautiful admin panel at `/admin` with tenant-scoped access
+- 🎨 **Collections**: Pre-built Tenants, Users, Posts, and Media collections
+- 🔒 **Access Control**: Row-level security with tenant isolation
+- 🛡️ **Rate Limiting**: Per-tenant API rate limits and usage tracking
 - 🌍 **EU Region**: Optimized for low-latency in Europe (Frankfurt/Lisbon)
 - ☁️ **Serverless**: Scales automatically on Vercel's infrastructure
 
@@ -56,10 +58,26 @@ This project replicates ~80-90% of PocketBase's simplicity while being fully ser
    - REST API: http://localhost:3000/api
    - GraphQL: http://localhost:3000/api/graphql
 
-5. **Create your first admin user**:
+5. **Create your first super admin user**:
    - Go to http://localhost:3000/admin
    - Fill in the registration form
-   - You're ready to go!
+   - Select role: **super-admin**
+   - You're ready to provision tenants!
+
+6. **Provision your first tenant** (optional - see [Multi-Tenant Guide](./MULTI-TENANT.md)):
+   ```bash
+   curl -X POST http://localhost:3000/api/tenants/provision \
+     -H "Content-Type: application/json" \
+     -d '{
+       "name": "My Company",
+       "subdomain": "mycompany",
+       "ownerEmail": "admin@mycompany.com",
+       "ownerName": "Admin User",
+       "ownerPassword": "SecurePassword123!",
+       "plan": "free",
+       "provisioningSecret": "your-provisioning-secret"
+     }'
+   ```
 
 ## 📦 Database Setup
 

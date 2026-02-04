@@ -13,8 +13,11 @@ export default function Home() {
         <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontWeight: '700' }}>
           🎸 Pocket Bass
         </h1>
-        <p style={{ fontSize: '1.5rem', color: '#666', marginBottom: '3rem' }}>
+        <p style={{ fontSize: '1.5rem', color: '#666', marginBottom: '1rem' }}>
           PocketBase-like Backend-as-a-Service
+        </p>
+        <p style={{ fontSize: '1rem', color: '#999', marginBottom: '3rem' }}>
+          Multi-tenant • Serverless • TypeScript-native
         </p>
         <div style={{
           display: 'grid',
@@ -22,6 +25,17 @@ export default function Home() {
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           marginBottom: '3rem',
         }}>
+          <div style={{
+            padding: '2rem',
+            borderRadius: '8px',
+            border: '1px solid #e5e5e5',
+            backgroundColor: '#fafafa',
+          }}>
+            <h2 style={{ marginBottom: '0.5rem' }}>🏢 Multi-Tenant</h2>
+            <p style={{ color: '#666', fontSize: '0.9rem' }}>
+              Isolated tenants with subdomain routing and rate limits
+            </p>
+          </div>
           <div style={{
             padding: '2rem',
             borderRadius: '8px',

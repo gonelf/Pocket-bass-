@@ -4,26 +4,81 @@ export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'author', 'status', 'createdAt'],
+    defaultColumns: ['title', 'author', 'status', 'tenant', 'createdAt'],
+    group: 'Content',
   },
   access: {
     read: ({ req: { user } }) => {
-      // Public posts are readable by everyone
+      // Super admins can read all posts
+      if (user?.role === 'super-admin') return true
+
+      // Build tenant-scoped query
+      const tenantFilter = user?.tenant ? {
+        tenant: {
+          equals: user.tenant,
+        },
+      } : false
+
+      // Public posts are readable by everyone (within tenant if specified)
       if (!user) {
+        if (!tenantFilter) return false
         return {
-          status: {
-            equals: 'published',
+          and: [
+            tenantFilter,
+            {
+              status: {
+                equals: 'published',
+              },
+            },
+          ],
+        }
+      }
+
+      // Admins can read all posts in their tenant
+      if (user.role === 'admin' && tenantFilter) {
+        return tenantFilter
+      }
+
+      // Users can read their own posts and published posts in their tenant
+      return {
+        and: [
+          tenantFilter,
+          {
+            or: [
+              {
+                status: {
+                  equals: 'published',
+                },
+              },
+              {
+                author: {
+                  equals: user.id,
+                },
+              },
+            ],
+          },
+        ],
+      }
+    },
+    create: ({ req: { user } }) => !!user && !!user.tenant,
+    update: ({ req: { user } }) => {
+      if (!user || !user.tenant) return false
+      // Super admins can update any post
+      if (user.role === 'super-admin') return true
+      // Admins can update posts in their tenant
+      if (user.role === 'admin') {
+        return {
+          tenant: {
+            equals: user.tenant,
           },
         }
       }
-      // Admins can read all
-      if (user.role === 'admin') return true
-      // Users can read their own posts and published posts
+      // Users can update their own posts
       return {
-        or: [
+        and: [
           {
-            status: {
-              equals: 'published',
+            tenant: {
+              equals: user.tenant,
             },
           },
           {
@@ -34,27 +89,52 @@ export const Posts: CollectionConfig = {
         ],
       }
     },
-    create: ({ req: { user } }) => !!user,
-    update: ({ req: { user } }) => {
-      if (!user) return false
-      if (user.role === 'admin') return true
-      return {
-        author: {
-          equals: user.id,
-        },
-      }
-    },
     delete: ({ req: { user } }) => {
-      if (!user) return false
-      if (user.role === 'admin') return true
+      if (!user || !user.tenant) return false
+      // Super admins can delete any post
+      if (user.role === 'super-admin') return true
+      // Admins can delete posts in their tenant
+      if (user.role === 'admin') {
+        return {
+          tenant: {
+            equals: user.tenant,
+          },
+        }
+      }
+      // Users can delete their own posts
       return {
-        author: {
-          equals: user.id,
-        },
+        and: [
+          {
+            tenant: {
+              equals: user.tenant,
+            },
+          },
+          {
+            author: {
+              equals: user.id,
+            },
+          },
+        ],
       }
     },
   },
   fields: [
+    {
+      name: 'tenant',
+      type: 'relationship',
+      relationTo: 'tenants',
+      required: true,
+      index: true,
+      admin: {
+        description: 'The tenant this post belongs to',
+        position: 'sidebar',
+        readOnly: true,
+      },
+      access: {
+        create: ({ req: { user } }) => user?.role === 'super-admin',
+        update: ({ req: { user } }) => user?.role === 'super-admin',
+      },
+    },
     {
       name: 'title',
       type: 'text',
@@ -135,10 +215,27 @@ export const Posts: CollectionConfig = {
   timestamps: true,
   hooks: {
     beforeChange: [
-      ({ data, req, operation }) => {
-        if (operation === 'create' && req.user) {
-          data.author = req.user.id
+      async ({ data, req, operation }) => {
+        // Auto-assign tenant and author on create
+        if (operation === 'create') {
+          if (req.user) {
+            data.author = req.user.id
+          }
+          if (!data.tenant && req.tenant) {
+            data.tenant = req.tenant.id
+          }
+          if (!data.tenant && req.user?.tenant) {
+            data.tenant = req.user.tenant
+          }
         }
+
+        // Prevent cross-tenant data leakage
+        if (operation === 'update' && req.user?.role !== 'super-admin') {
+          if (data.tenant && req.user?.tenant && data.tenant !== req.user.tenant) {
+            throw new Error('Cannot move posts between tenants')
+          }
+        }
+
         return data
       },
     ],
