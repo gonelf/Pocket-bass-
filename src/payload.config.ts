@@ -4,6 +4,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import fs from 'fs'
 
 // Collections
 import { Tenants } from './collections/Tenants'
@@ -16,6 +17,22 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 // Validate required environment variables
+if (!process.env.PAYLOAD_SECRET) {
+  // Attempt to load .env manually if not loaded (e.g. during build)
+  try {
+    const envPath = path.resolve(dirname, '../.env')
+    if (fs.existsSync(envPath)) {
+      const envContent = fs.readFileSync(envPath, 'utf-8')
+      const match = envContent.match(/PAYLOAD_SECRET=(.*)/)
+      if (match && match[1]) {
+        process.env.PAYLOAD_SECRET = match[1].trim()
+      }
+    }
+  } catch (e) {
+    // ignore error
+  }
+}
+
 if (!process.env.PAYLOAD_SECRET) {
   throw new Error('PAYLOAD_SECRET environment variable is required')
 }
