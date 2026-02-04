@@ -10,6 +10,7 @@ import { Tenants } from './collections/Tenants'
 import { Users } from './collections/Users'
 import { Posts } from './collections/Posts'
 import { Media } from './collections/Media'
+import { Waitlist } from './collections/Waitlist'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +25,7 @@ export default buildConfig({
       ogImage: '/og-image.jpg',
     },
   },
-  collections: [Tenants, Users, Posts, Media],
+  collections: [Tenants, Users, Posts, Media, Waitlist],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
   typescript: {
