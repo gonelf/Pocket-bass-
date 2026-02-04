@@ -10,9 +10,15 @@ import { Tenants } from './collections/Tenants'
 import { Users } from './collections/Users'
 import { Posts } from './collections/Posts'
 import { Media } from './collections/Media'
+import { Waitlist } from './collections/Waitlist'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+// Validate required environment variables
+if (!process.env.PAYLOAD_SECRET) {
+  throw new Error('PAYLOAD_SECRET environment variable is required')
+}
 
 export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
@@ -24,9 +30,9 @@ export default buildConfig({
       ogImage: '/og-image.jpg',
     },
   },
-  collections: [Tenants, Users, Posts, Media],
+  collections: [Tenants, Users, Posts, Media, Waitlist],
   editor: lexicalEditor({}),
-  secret: process.env.PAYLOAD_SECRET || 'your-secret-key-here',
+  secret: process.env.PAYLOAD_SECRET!,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
