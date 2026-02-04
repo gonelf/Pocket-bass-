@@ -190,6 +190,17 @@ vercel --prod
 | `R2_BUCKET_NAME` | R2 bucket name | `pocket-bass-media` |
 | `NEXT_PUBLIC_SERVER_URL` | Your Vercel domain | `https://your-app.vercel.app` |
 
+| Variable | Example |
+|----------|---------|
+| `PAYLOAD_SECRET` | `your-secret-key-here` |
+| `DATABASE_URI` | `libsql://your-db.turso.io` |
+| `DATABASE_AUTH_TOKEN` | `your-turso-token` |
+| `R2_ACCESS_KEY_ID` | `your-access-key` |
+| `R2_SECRET_ACCESS_KEY` | `your-secret-key` |
+| `R2_ENDPOINT` | `https://xxx.r2.cloudflarestorage.com` |
+| `R2_BUCKET_NAME` | `pocket-bass-media` |
+| `NEXT_PUBLIC_SERVER_URL` | `https://your-app.vercel.app` |
+
 ## 📚 Collections
 
 ### Users
